@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    main {
+      /*   background-color: rgb(8, 8, 8);
+      width: 400px;
+      height: 500px; */
+      /* padding: 30px; */
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      /*  flex-flow: row wrap; */
+    }
+
+    section {
+      border: 5px solid white;
+      padding: 10px;
+      background-color: black;
+      width: 400px;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1;
+      /* flex-flow: row wrap; */
+      /* justify-content: space-around; */
+
+    }
+
+    button {
+      background-color: rgb(245, 244, 244);
+      color: rgb(8, 8, 8);
+      width: 4.5vw;
+      height: 6vh;
+      /* justify-content: space-around; */
+      flex-flow: row-wrap;
+    }
+
+    .clear {
+      width: 6vw;
+    }
+
+    b {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="Calculator">
+    <section>
+      <b>Calculator</b>
+
+      <div>
+        <p>
+          <button onclick="
+          calculation('1')">1</button>
+          <button onclick="
+          calculation('2')">2</button>
+          <button onclick="
+          calculation('3')">3</button>
+          <button onclick="
+          calculation('+')">+</button>
+        </p>
+      </div>
+      <div>
+        <p>
+          <button onclick="
+          calculation('4')">4</button>
+          <button onclick="
+          calculation('5')">5</button>
+          <button onclick="
+          calculation('6')">6</button>
+          <button onclick="
+          calculation('-')">-</button>
+        </p>
+      </div>
+      <div>
+        <p>
+          <button onclick="
+          calculation('7')">7</button>
+          <button onclick="
+          calculation('8')">8</button>
+          <button onclick="
+          calculation('9')">9</button>
+          <button onclick="
+          calculation('*')">*</button>
+        </p>
+      </div>
+      <div>
+        <p>
+          <button onclick="
+          calculation('0')">0</button>
+          <button onclick="
+          calculation('.')">.</button>
+          <button onclick="calculation = eval(calculation);
+          console.log(calculation)">=</button>
+          <button onclick="
+          calculation('/')">/</button>
+        </p>
+      </div>
+      <div>
+        <p>
+          <button class="clear" onclick="
+            calculation=''; console.log(calculation);">clear</button>
+        </p>
+      </div>
+    </section>
+  </main>
+  <script>
+    let calculation = '';
+    function calculation(value) {
+      calculation += value;
+      console.log(calculation);
+    }
+  </script>
+
+</body>
+
+</html>

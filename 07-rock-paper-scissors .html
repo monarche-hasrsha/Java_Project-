@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Sissors</title>
+  <style>
+    body {
+      color: white;
+      background-color: #404040;
+      text-align: center;
+    }
+
+    button {
+      font-size: 100px;
+      width: 245px;
+      height: 245px;
+      object-fit: cover;
+      border-radius: 50%;
+      background-color: black;
+      border: 10px solid white;
+      margin: 100px;
+    }
+
+    section {
+      background-color: #404040;
+      display: flex;
+      flex-wrap: row wrap;
+      /* flex: 1; */
+      justify-content: space-between;
+    }
+
+    div {
+      /* border: 2px solid blue; */
+      /* border: 10px solid white; */
+      border-radius: 50%;
+      animation-name: rolling;
+      animation-delay: 2s;
+      animation-duration: 10s;
+      animation-timing-function: all;
+      animation-iteration-count: 1;
+    }
+
+    section div {
+      height: auto;
+    }
+
+    h3 {
+      font-size: 50px;
+      background-color: black;
+      color: yellow;
+      border: 8px solid yellow;
+      text-align: center;
+      width: 35%;
+      margin: 5px;
+    }
+
+    h5 {
+      font-size: 40px;
+
+      color: yellow;
+      /* border: 8px solid yellow; */
+      text-align: center;
+      width: 35%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 20px 0px 0px 0px;
+    }
+
+    @keyframes rolling {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      0% {
+        transform: rotate(360deg) scale(0.5);
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+      section,
+      div {
+        display: block;
+        color: royalblue;
+        height: auto;
+
+      }
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <h5>Press Any Button To Start.</h5>
+  <h3>Rock Paper Sissors</h3>
+  <!--  <h4>Press The Button To Start.</h4> -->
+  <section>
+    <div>
+      <button onclick=" playgame('rock')   
+  ">✊</button>
+    </div>
+    <div>
+      <button onclick=" playgame('paper')
+  ">✋</button>
+    </div>
+    <div>
+      <Button onclick="
+     playgame('scissors')
+      ">✌️
+      </Button>
+    </div>
+  </section>
+  <script>
+    function playgame(playerMove) {
+      const computerMove = pickComputerMove();
+
+      let result = '';
+      if (playerMove === 'scissors') {
+        if (computerMove === 'rock') {
+          result = 'You Lose.';
+        } else if (computerMove === 'paper') {
+          result = 'You Win.';
+        } else if (computerMove === 'scissors') {
+          result = 'Tie.';
+        }
+      } else if (playerMove === 'paper') {
+        if (computerMove === 'rock') {
+          result = 'You Win.';
+        } else if (computerMove === 'paper') {
+          result = 'Tie.';
+        } else if (computerMove === 'scissors') {
+          result = 'You Lose.';
+        }
+      } else if (playerMove === 'rock') {
+        if (computerMove === 'rock') {
+          result = 'Tie.';
+        } else if (computerMove === 'paper') {
+          result = 'You Lose.';
+        } else if (computerMove === 'scissors') {
+          result = 'You Win.';
+        }
+      }
+
+
+
+      alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}.`);
+    }
+
+    function pickComputerMove() {
+      const randomNumber = Math.random();
+
+      let computerMove = '';
+
+      if (randomNumber >= 0 && randomNumber < 1 / 3) {
+        computerMove = 'rock';
+      } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+        computerMove = 'paper';
+      } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+        computerMove = 'scissors';
+      }
+
+      return computerMove;
+      /* what we basically do here is we return the computer move by calling the function but if it is not defined in a variable then it causes an error saying that "computermove not defined" to prevent this we create a variable in every inclick of a button :- const computerMove= pickComputerMove();*/
+    }
+  </script>
+</body>
+
+</html>
