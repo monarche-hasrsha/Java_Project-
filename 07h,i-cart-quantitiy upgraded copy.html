@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Quantity</title>
+</head>
+
+<body>
+  <p>Cart Quantity</p>
+  <button onclick="
+      console.log(`Cart Quantity: ${cartQuantity}`);/* use templet strings to insert a value into a string*/ 
+    ">Show Quantity</button>
+  <button onclick=" 
+    updateCartQuantitiy(+1)
+    ">Add to Cart</button>
+  <button onclick=" 
+    updateCartQuantitiy(+2) 
+    ">+2</button>
+  <button onclick=" 
+    updateCartQuantitiy(+3);
+    ">+3</button>
+  <button onclick="
+    updateCartQuantitiy(+4)
+    ">+4</button>
+  <button onclick="
+    updateCartQuantitiy(+5);
+    ">+5</button>
+
+  <button onclick="
+  updateCartQuantitiy(-1);
+">Remove from cart</button>
+
+  <button onclick="
+  updateCartQuantitiy(-2);
+">-2</button>
+
+  <button onclick="
+  updateCartQuantitiy(-3);
+">-3</button>
+  <!-- ^^^ This code was changed. ^^^ -->
+
+  <button onclick="
+  cartQuantity = 0;
+  console.log('Cart was reset.');
+  console.log(`Cart quantity: ${cartQuantity}`);
+">Reset Cart</button>
+  <script>
+    let cartQuantity = 0;
+    function updateCartQuantitiy(value) {
+      if (cartQuantity + value > 10) {
+        alert('The cart is full');
+        return;
+      }
+      else if (cartQuantity + value < 0) {
+        alert('Not enough items in the cart');
+        return;
+      } else {
+        cartQuantity += value;
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+    }
+  </script>
+</body>
+
+</html>
